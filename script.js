@@ -1,7 +1,3 @@
-const dolar = 6
-const euro = 6.33
-const bitcoin = 598.400
-
 const button = document.getElementById('convert-button')
 const selectCoin = document.getElementById('currency-coin');
 const inputValue = document.getElementById('input-value')
@@ -11,7 +7,16 @@ const currencyValue = document.getElementById('currency-value')
 const flag = document.getElementById('flag')
 const labelCurrencyCoin = document.getElementById('labelCurrencyCoin')
 
-const convertValues = () => {
+const convertValues = async () => {
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+
+    const dolar = data.USDBRL.high
+    const euro = data.EURBRL.high
+    const bitcoin = data.BTCBRL.high
+
+
+    console.log(data)
+
     realValue.textContent = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputValue.value)
 
     if (selectCoin.value === 'Dólar Americano') {
@@ -30,7 +35,12 @@ const convertValues = () => {
         currencyValue.textContent = new Intl.NumberFormat('pt-BT', { style: 'currency', currency: 'BTC' }).format(inputValue.value / bitcoin)
         labelCurrencyCoin.textContent = 'Bitcoin'
         flag.src = './Assets/Bitcoin.png'
-    }   
+    }
+    // else if (selectCoin.value === 'Bitcoin') {
+    //     currencyValue.textContent = new Intl.NumberFormat('pt-BT', { style: 'currency', currency: 'BTC' }).format(inputValue.value / bitcoin)
+    //     labelCurrencyCoin.textContent = 'Bitcoin'
+    //     flag.src = './Assets/Bitcoin.png'
+    // }
 }
 
 const placeholderDelete = () => {
@@ -58,6 +68,7 @@ const changeValues = () => {
             labelCurrencyCoin.textContent = 'Bitcoin'
             flag.src = './Assets/Bitcoin.png'
         }
+
     }
     else {
         convertValues()
