@@ -36,11 +36,6 @@ const convertValues = async () => {
         labelCurrencyCoin.textContent = 'Bitcoin'
         flag.src = './Assets/Bitcoin.png'
     }
-    // else if (selectCoin.value === 'Bitcoin') {
-    //     currencyValue.textContent = new Intl.NumberFormat('pt-BT', { style: 'currency', currency: 'BTC' }).format(inputValue.value / bitcoin)
-    //     labelCurrencyCoin.textContent = 'Bitcoin'
-    //     flag.src = './Assets/Bitcoin.png'
-    // }
 }
 
 const placeholderDelete = () => {
