@@ -36,7 +36,7 @@ O conversor de moedas permite que o usuário converta um valor de Real Brasileir
 
 ## 🌐 Deploy
 <div align="center"> 
-<a href="https://felipeaz01.github.io/Projeto-Conversor-de-Moedas/">
+<a href="https://convertmoneyd.netlify.app">
   <img   width="120px" src="https://img.shields.io/website-up-down-green-red/http/monip.org.svg"  /> 
 </a>
 </div>
